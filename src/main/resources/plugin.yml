@@ -1,0 +1,15 @@
+main: ${project.main}
+author: ${project.authors}
+version: ${project.version}
+name: ${project.name}
+depend: [GriefPrevention]
+database: true
+commands:
+  claimflag:
+    aliases: ['flag']
+    usage: |
+      /<command> set <flag> - sets a flag
+      /<command> unset <flag> - unsets a flag
+      /<command> toggle <flag> - toggles a flag
+      /<command> check [<flag>] - prints the state of one or all flags.
+
