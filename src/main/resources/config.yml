@@ -1,6 +1,8 @@
 database: false
 
-nomobs:
+mob_spawns:
+  enabled: true
+  only-above-sea-level: true
   blocked-reasons:
    - DEFAULT
    - LIGHTNING

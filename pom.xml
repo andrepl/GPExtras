@@ -48,9 +48,7 @@
         <dependency>
             <groupId>me.ryanhamshire.GriefPrevention</groupId>
             <artifactId>GriefPrevention</artifactId>
-            <scope>system</scope>
-            <version>7.8</version>
-            <systemPath>${basedir}/lib/GriefPrevention.jar</systemPath>
+            <version>7.8-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
