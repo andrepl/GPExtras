@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.norcode.bukkit.gpextras</groupId>
     <artifactId>GPExtras</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.authors>metalhedd</project.authors>
@@ -47,7 +47,7 @@
         <dependency>
             <groupId>me.ryanhamshire.GriefPrevention</groupId>
             <artifactId>GriefPreventionTNG</artifactId>
-            <version>0.91-SNAPSHOT</version>
+            <version>0.92.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

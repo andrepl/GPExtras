@@ -15,4 +15,12 @@ permissions:
     default: op
   gpextras.flag.pvp:
     default: op
+  gpextras.command.setmessage:
+    default: op
+  gpextras.*:
+    default: op
+    children:
+      gpextras.command.setmessage: true
+      gpextras.flag.mobspawns: true
+      gpextras.flag.pvp: true
 

@@ -43,9 +43,9 @@ public class MobSpawnsFlag extends BaseFlag implements Listener {
     @EventHandler(ignoreCancelled=true, priority=EventPriority.LOW)
     public void onCreatureSpawnEvent(CreatureSpawnEvent event) {
         if (blockedTypes.contains(event.getEntity().getType()) && blockedReasons.contains(event.getSpawnReason())) {
-            WorldConfig worldConfig = GriefPrevention.instance.getWorldCfg(event.getLocation().getWorld());
+            WorldConfig worldConfig = plugin.getGP().getWorldCfg(event.getLocation().getWorld());
             if (!onlyAboveSeaLevel || event.getLocation().getBlockY() > worldConfig.getSeaLevelOverride()) {
-                Claim claim = GriefPrevention.instance.dataStore.getClaimAt(event.getLocation(), false, null);
+                Claim claim = plugin.getGP().getDataStore().getClaimAt(event.getLocation(), false, null);
                 if (claim != null && claim.getFlag(this).equals("Deny")) {
                     event.setCancelled(true);
                 }

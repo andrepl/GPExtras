@@ -5,15 +5,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class GPExtras extends JavaPlugin {
 
-    GriefPreventionListener griefPreventionListener;
+    GriefPrevention griefPreventionPlugin;
     ClaimChangeListener claimChangeListener;
+
     @Override
     public void onEnable() {
-        saveDefaultConfig();
-        getConfig().options().copyDefaults(true);
-        saveConfig();
-        reloadConfig();
-        griefPreventionListener = new GriefPreventionListener(this);
+        initConfig();
+        griefPreventionPlugin = (GriefPrevention) getServer().getPluginManager().getPlugin("GriefPrevention");
+        new GriefPreventionListener(this);
         loadFlags();
         if (getConfig().getBoolean("entry-exit-messages")) {
             claimChangeListener = new ClaimChangeListener(this);
@@ -21,12 +20,23 @@ public class GPExtras extends JavaPlugin {
         }
     }
 
+    private void initConfig() {
+        saveDefaultConfig();
+        getConfig().options().copyDefaults(true);
+        saveConfig();
+        reloadConfig();
+    }
+
+    public GriefPrevention getGP() {
+        return griefPreventionPlugin;
+    }
+
     public void loadFlags() {
         if (getConfig().getBoolean("mob_spawns.enabled")) {
-            GriefPrevention.instance.getFlagManager().registerFlag(new MobSpawnsFlag(this));
+            griefPreventionPlugin.getFlagManager().registerFlag(new MobSpawnsFlag(this));
         }
         if (getConfig().getBoolean("pvp.enabled")) {
-            GriefPrevention.instance.getFlagManager().registerFlag(new PVPFlag(this));
+            griefPreventionPlugin.getFlagManager().registerFlag(new PVPFlag(this));
         }
     }
 

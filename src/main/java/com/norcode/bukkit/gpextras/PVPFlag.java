@@ -34,15 +34,15 @@ public class PVPFlag extends BaseFlag implements Listener {
                     ((event.getDamager() instanceof Projectile) &&
                             ((Projectile) ((Projectile) event.getDamager()).getShooter() instanceof Player))) {
                 Player target = (Player) event.getEntity();
-                PlayerData pd = GriefPrevention.instance.dataStore.getPlayerData(target.getName());
+                PlayerData pd = plugin.getGP().getDataStore().getPlayerData(target.getName());
                 Claim claim = null;
                 if (pd != null) {
                     claim = pd.getLastClaim();
                 }
-                claim = GriefPrevention.instance.dataStore.getClaimAt(target.getLocation(), true, claim);
+                claim = plugin.getGP().getDataStore().getClaimAt(target.getLocation(), true, claim);
                 if (claim != null && claim.getFlag(this).equals("Deny")) {
                     Player damager = event.getDamager() instanceof Player ? (Player) event.getDamager() : (Player) ((Projectile) event.getDamager()).getShooter();
-                    damager.sendMessage(GriefPrevention.instance.configuration.getColor(TextMode.ERROR) + "This is a No-PVP Zone.");
+                    damager.sendMessage(plugin.getGP().configuration.getColor(TextMode.ERROR) + "This is a No-PVP Zone.");
                     event.setCancelled(true);
                 }
             }

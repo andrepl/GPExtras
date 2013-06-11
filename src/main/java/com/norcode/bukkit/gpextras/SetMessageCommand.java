@@ -26,7 +26,7 @@ public class SetMessageCommand extends BaseClaimCommand {
     private GPExtras extras;
 
     public SetMessageCommand(GPExtras extras) {
-        super(GriefPrevention.instance, "gpsetmessage", Messages.ClaimMissing);
+        super(extras.getGP(), "gpsetmessage", Messages.ClaimMissing);
         this.extras = extras;
 
     }
@@ -34,7 +34,7 @@ public class SetMessageCommand extends BaseClaimCommand {
     @Override
     public boolean onCommand(Player player, Claim claim, Command command, String label, LinkedList<String> args) {
         if (!(claim.isManager(player.getName()) || claim.getOwnerName().equals(player.getName()))) {
-            GriefPrevention.sendMessage(player, TextMode.ERROR, Messages.NoPermissionTrust, claim.getOwnerName());
+            extras.getGP().sendMessage(player, TextMode.ERROR, Messages.NoPermissionTrust, claim.getOwnerName());
             return true;
         }
         if (args.size() == 0) {
@@ -56,8 +56,8 @@ public class SetMessageCommand extends BaseClaimCommand {
         }
         PluginClaimMeta meta = claim.getClaimMeta(extras, true);
         meta.set(msgType + "-message", msg);
-        GriefPrevention.instance.dataStore.saveClaim(claim);
-        player.sendMessage(GriefPrevention.instance.configuration.getColor(TextMode.SUCCESS) + "This claim's " + msgType + " message has been " + (msg == null ? "cleared" : "set."));
+        extras.getGP().getDataStore().saveClaim(claim);
+        player.sendMessage(extras.getGP().configuration.getColor(TextMode.SUCCESS) + "This claim's " + msgType + " message has been " + (msg == null ? "cleared" : "set."));
         return true;
     }
 
