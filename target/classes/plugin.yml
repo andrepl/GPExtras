@@ -1,5 +1,26 @@
 main: com.norcode.bukkit.gpextras.GPExtras
 author: metalhedd
-version: 0.0.1-SNAPSHOT
+version: 0.0.1
 name: GPExtras
-depend: [GriefPrevention]
+depend: [GriefPreventionTNG]
+
+commands:
+  gpsetmessage:
+    usage: /<command> [entry|exit] <message>
+    description: sets the claim's entry/exit message
+    permission: gpextras.command.setmessage
+
+permissions:
+  gpextras.flag.mobspawns:
+    default: op
+  gpextras.flag.pvp:
+    default: op
+  gpextras.command.setmessage:
+    default: op
+  gpextras.*:
+    default: op
+    children:
+      gpextras.command.setmessage: true
+      gpextras.flag.mobspawns: true
+      gpextras.flag.pvp: true
+

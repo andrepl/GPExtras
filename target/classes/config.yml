@@ -1,5 +1,7 @@
 database: false
-
+entry-exit-messages: true
+pvp:
+  enabled: true
 mob_spawns:
   enabled: true
   only-above-sea-level: true
