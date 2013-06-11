@@ -4,7 +4,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.PluginDisableEvent;
-import org.bukkit.event.server.PluginEnableEvent;
 
 public class GriefPreventionListener implements Listener {
 
@@ -15,7 +14,7 @@ public class GriefPreventionListener implements Listener {
         this.plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler
     public void onPluginDisable(PluginDisableEvent event) {
         if (event.getPlugin().getName().equals("GriefPreventionTNG")) {
             plugin.debug("GriefPrevention was disabled, disabling GPExtras.");
