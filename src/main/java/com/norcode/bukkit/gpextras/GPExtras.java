@@ -1,5 +1,10 @@
 package com.norcode.bukkit.gpextras;
 
+import com.norcode.bukkit.gpextras.commands.SetMessageCommand;
+import com.norcode.bukkit.gpextras.flags.MobSpawnsFlag;
+import com.norcode.bukkit.gpextras.flags.PVPFlag;
+import com.norcode.bukkit.gpextras.listeners.ClaimChangeListener;
+import com.norcode.bukkit.gpextras.listeners.GriefPreventionListener;
 import me.ryanhamshire.GriefPrevention.GriefPrevention;
 import me.ryanhamshire.GriefPrevention.exceptions.FlagAlreadyRegisteredException;
 import me.ryanhamshire.GriefPrevention.exceptions.InvalidFlagException;
@@ -16,8 +21,8 @@ public class GPExtras extends JavaPlugin {
         griefPreventionPlugin = (GriefPrevention) getServer().getPluginManager().getPlugin("GriefPrevention");
         new GriefPreventionListener(this);
         loadFlags();
+        claimChangeListener = new ClaimChangeListener(this);
         if (getConfig().getBoolean("entry-exit-messages")) {
-            claimChangeListener = new ClaimChangeListener(this);
             new SetMessageCommand(this);
         }
     }

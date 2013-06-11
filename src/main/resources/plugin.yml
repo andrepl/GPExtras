@@ -9,8 +9,20 @@ commands:
     usage: /<command> [entry|exit] <message>
     description: sets the claim's entry/exit message
     permission: gpextras.command.setmessage
+  gpsellclaim:
+    usage: /<command> <saleprice>
+    description: puts a claim up for sale.
+    permission: gpextras.commands.sellclaim
+  gpbuyclaim:
+    usage: /<command>
+    description: purchases a claim that's for sale.
+    permission: gpextras.commands.buyclaim
 
 permissions:
+  gpextras.commands.sellclaim:
+    default: op
+  gpextras.commands.buyclaim:
+    default: op
   gpextras.flag.mobspawns:
     default: op
   gpextras.flag.pvp:
@@ -21,6 +33,8 @@ permissions:
     default: op
     children:
       gpextras.command.setmessage: true
+      gpextras.command.sellclaim: true
+      gpextras.command.buyclaim: true
       gpextras.flag.mobspawns: true
       gpextras.flag.pvp: true
 

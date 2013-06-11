@@ -1,5 +1,6 @@
-package com.norcode.bukkit.gpextras;
+package com.norcode.bukkit.gpextras.commands;
 
+import com.norcode.bukkit.gpextras.GPExtras;
 import me.ryanhamshire.GriefPrevention.GriefPrevention;
 import me.ryanhamshire.GriefPrevention.commands.BaseClaimCommand;
 import me.ryanhamshire.GriefPrevention.data.Claim;
@@ -14,13 +15,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: andre
- * Date: 6/10/13
- * Time: 9:08 PM
- * To change this template use File | Settings | File Templates.
- */
 public class SetMessageCommand extends BaseClaimCommand {
 
     private GPExtras extras;
@@ -28,7 +22,6 @@ public class SetMessageCommand extends BaseClaimCommand {
     public SetMessageCommand(GPExtras extras) {
         super(extras.getGP(), "gpsetmessage", Messages.ClaimMissing);
         this.extras = extras;
-
     }
 
     @Override

@@ -1,5 +1,6 @@
-package com.norcode.bukkit.gpextras;
+package com.norcode.bukkit.gpextras.listeners;
 
+import com.norcode.bukkit.gpextras.GPExtras;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

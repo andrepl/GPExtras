@@ -1,5 +1,6 @@
-package com.norcode.bukkit.gpextras;
+package com.norcode.bukkit.gpextras.flags;
 
+import com.norcode.bukkit.gpextras.GPExtras;
 import me.ryanhamshire.GriefPrevention.GriefPrevention;
 import me.ryanhamshire.GriefPrevention.configuration.WorldConfig;
 import me.ryanhamshire.GriefPrevention.data.Claim;
