@@ -3,13 +3,3 @@ author: metalhedd
 version: 0.0.1-SNAPSHOT
 name: GPExtras
 depend: [GriefPrevention]
-database: true
-commands:
-  claimflag:
-    aliases: ['flag']
-    usage: |
-      /<command> set <flag> - sets a flag
-      /<command> unset <flag> - unsets a flag
-      /<command> toggle <flag> - toggles a flag
-      /<command> check [<flag>] - prints the state of one or all flags.
-
