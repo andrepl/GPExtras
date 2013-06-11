@@ -38,6 +38,10 @@
             <id>bukkit-releases-repo</id>
             <url>http://repo.bukkit.org/content/repositories/releases/</url>
         </repository>
+        <repository>
+            <id>snapshots</id>
+            <url>http://mcgitlab.norcode.com:8082/contentt/repositories/snapshots/</url>
+        </repository>
     </repositories>
     <dependencies>
         <dependency>
@@ -49,7 +53,7 @@
             <groupId>me.ryanhamshire.GriefPrevention</groupId>
             <artifactId>GriefPreventionTNG</artifactId>
             <version>0.91-SNAPSHOT</version>
-
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
