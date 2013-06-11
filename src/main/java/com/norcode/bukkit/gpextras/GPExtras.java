@@ -1,6 +1,8 @@
 package com.norcode.bukkit.gpextras;
 
 import me.ryanhamshire.GriefPrevention.GriefPrevention;
+import me.ryanhamshire.GriefPrevention.exceptions.FlagAlreadyRegisteredException;
+import me.ryanhamshire.GriefPrevention.exceptions.InvalidFlagException;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class GPExtras extends JavaPlugin {
@@ -24,7 +26,6 @@ public class GPExtras extends JavaPlugin {
         saveDefaultConfig();
         getConfig().options().copyDefaults(true);
         saveConfig();
-        reloadConfig();
     }
 
     public GriefPrevention getGP() {
@@ -32,11 +33,19 @@ public class GPExtras extends JavaPlugin {
     }
 
     public void loadFlags() {
+        try {
         if (getConfig().getBoolean("mob_spawns.enabled")) {
             griefPreventionPlugin.getFlagManager().registerFlag(new MobSpawnsFlag(this));
         }
         if (getConfig().getBoolean("pvp.enabled")) {
             griefPreventionPlugin.getFlagManager().registerFlag(new PVPFlag(this));
+        }
+        } catch (InvalidFlagException ex) {
+            getLogger().severe("Something went horribly wrong! Disabling!");
+            getServer().getPluginManager().disablePlugin(this);
+        } catch (FlagAlreadyRegisteredException ex) {
+            getLogger().severe("Something went horribly wrong! Disabling!");
+            getServer().getPluginManager().disablePlugin(this);
         }
     }
 
