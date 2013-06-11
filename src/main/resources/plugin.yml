@@ -2,4 +2,4 @@ main: ${project.main}
 author: ${project.authors}
 version: ${project.version}
 name: ${project.name}
-depend: [GriefPrevention]
+depend: [GriefPreventionTNG]
