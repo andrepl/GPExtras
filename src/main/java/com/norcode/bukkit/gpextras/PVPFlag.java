@@ -23,6 +23,7 @@ public class PVPFlag extends BaseFlag implements Listener {
         this.getValidOptions().add("Allow");
         this.getValidOptions().add("Deny");
         this.setRequiredPermission("gpextras.flag.pvp");
+        this.setDefaultValue("Allow");
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 

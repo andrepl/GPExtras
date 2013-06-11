@@ -24,6 +24,7 @@ public class MobSpawnsFlag extends BaseFlag implements Listener {
     public MobSpawnsFlag(GPExtras plugin) {
         super("MOB_SPAWNS");
         this.setDisplayName("Mob Spawns");
+        this.setDefaultValue("Allow");
         this.setDescription("Prevents hostile mobs from spawning.");
         this.getValidOptions().add("Allow");
         this.getValidOptions().add("Deny");

@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class GPExtras extends JavaPlugin {
 
     GriefPreventionListener griefPreventionListener;
-
+    ClaimChangeListener claimChangeListener;
     @Override
     public void onEnable() {
         saveDefaultConfig();
@@ -15,6 +15,10 @@ public class GPExtras extends JavaPlugin {
         reloadConfig();
         griefPreventionListener = new GriefPreventionListener(this);
         loadFlags();
+        if (getConfig().getBoolean("entry-exit-messages")) {
+            claimChangeListener = new ClaimChangeListener(this);
+            new SetMessageCommand(this);
+        }
     }
 
     public void loadFlags() {

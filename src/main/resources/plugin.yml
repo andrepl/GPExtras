@@ -3,3 +3,16 @@ author: ${project.authors}
 version: ${project.version}
 name: ${project.name}
 depend: [GriefPreventionTNG]
+
+commands:
+  gpsetmessage:
+    usage: /<command> [entry|exit] <message>
+    description: sets the claim's entry/exit message
+    permission: gpextras.command.setmessage
+
+permissions:
+  gpextras.flag.mobspawns:
+    default: op
+  gpextras.flag.pvp:
+    default: op
+
