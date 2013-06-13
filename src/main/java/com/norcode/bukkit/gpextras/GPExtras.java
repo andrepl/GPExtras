@@ -1,6 +1,7 @@
 package com.norcode.bukkit.gpextras;
 
 import com.norcode.bukkit.gpextras.commands.SetMessageCommand;
+import com.norcode.bukkit.gpextras.flags.HungerFlag;
 import com.norcode.bukkit.gpextras.flags.MobSpawnsFlag;
 import com.norcode.bukkit.gpextras.flags.PVPFlag;
 import com.norcode.bukkit.gpextras.listeners.ClaimChangeListener;
@@ -44,6 +45,9 @@ public class GPExtras extends JavaPlugin {
         }
         if (getConfig().getBoolean("pvp.enabled")) {
             griefPreventionPlugin.getFlagManager().registerFlag(new PVPFlag(this));
+        }
+        if (getConfig().getBoolean("hunger.enabled")) {
+            griefPreventionPlugin.getFlagManager().registerFlag(new HungerFlag(this));
         }
         } catch (InvalidFlagException ex) {
             getLogger().severe("Something went horribly wrong! Disabling!");

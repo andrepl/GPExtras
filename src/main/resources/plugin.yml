@@ -29,7 +29,7 @@ permissions:
     default: op
   gpextras.command.setmessage:
     default: op
-  gpextras.*:
+  gpextras.player:
     default: op
     children:
       gpextras.command.setmessage: true
@@ -37,4 +37,10 @@ permissions:
       gpextras.command.buyclaim: true
       gpextras.flag.mobspawns: true
       gpextras.flag.pvp: true
+
+  gpextras.admin:
+    default: op
+    children:
+      gpextras.player: true
+      gpextras.flag.hunger: true
 

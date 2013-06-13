@@ -24,6 +24,7 @@ public class MobSpawnsFlag extends BaseFlag implements Listener {
 
     public MobSpawnsFlag(GPExtras plugin) {
         super("MOB_SPAWNS");
+        this.plugin = plugin;
         this.setDisplayName("Mob Spawns");
         this.setDefaultValue("Allow");
         this.setDescription("Prevents hostile mobs from spawning.");
@@ -47,7 +48,7 @@ public class MobSpawnsFlag extends BaseFlag implements Listener {
             WorldConfig worldConfig = plugin.getGP().getWorldCfg(event.getLocation().getWorld());
             if (!onlyAboveSeaLevel || event.getLocation().getBlockY() > worldConfig.getSeaLevelOverride()) {
                 Claim claim = plugin.getGP().getDataStore().getClaimAt(event.getLocation(), false, null);
-                if (claim != null && claim.getFlag(this).equals("Deny")) {
+                if (claim != null && claim.getFlag(this) != null && claim.getFlag(this).equals("Deny")) {
                     event.setCancelled(true);
                 }
             }
