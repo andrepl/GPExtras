@@ -13,6 +13,13 @@
         <project.softdepends>[GriefPrevention]</project.softdepends>
         <project.description>More claim-specific options for Grief Prevention</project.description>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>snapshots</id>
+            <name>mcgitlab snapshots</name>
+            <url>http://mcgitlab.norcode.com:8082/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </distributionManagement>
     <build>
         <resources>
             <resource>
