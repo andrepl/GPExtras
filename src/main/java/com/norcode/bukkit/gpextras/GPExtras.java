@@ -38,16 +38,23 @@ public class GPExtras extends JavaPlugin {
         return griefPreventionPlugin;
     }
 
+    private PVPFlag pvpFlag;
+    private HungerFlag hungerFlag;
+    private MobSpawnsFlag mobSpawnsFlag;
+
     public void loadFlags() {
         try {
         if (getConfig().getBoolean("mob_spawns.enabled")) {
-            griefPreventionPlugin.getFlagManager().registerFlag(new MobSpawnsFlag(this));
+            mobSpawnsFlag = new MobSpawnsFlag(this);
+            griefPreventionPlugin.getFlagManager().registerFlag(mobSpawnsFlag);
         }
         if (getConfig().getBoolean("pvp.enabled")) {
-            griefPreventionPlugin.getFlagManager().registerFlag(new PVPFlag(this));
+            pvpFlag = new PVPFlag(this);
+            griefPreventionPlugin.getFlagManager().registerFlag(pvpFlag);
         }
         if (getConfig().getBoolean("hunger.enabled")) {
-            griefPreventionPlugin.getFlagManager().registerFlag(new HungerFlag(this));
+            hungerFlag = new HungerFlag(this);
+            griefPreventionPlugin.getFlagManager().registerFlag(hungerFlag);
         }
         } catch (InvalidFlagException ex) {
             getLogger().severe("Something went horribly wrong! Disabling!");
@@ -62,5 +69,17 @@ public class GPExtras extends JavaPlugin {
         if (getConfig().getBoolean("debug", false)) {
             getLogger().info(s);
         }
+    }
+
+    public PVPFlag getPvpFlag() {
+        return pvpFlag;
+    }
+
+    public HungerFlag getHungerFlag() {
+        return hungerFlag;
+    }
+
+    public MobSpawnsFlag getMobSpawnsFlag() {
+        return mobSpawnsFlag;
     }
 }
