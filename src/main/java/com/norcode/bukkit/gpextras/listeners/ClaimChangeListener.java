@@ -1,6 +1,7 @@
 package com.norcode.bukkit.gpextras.listeners;
 
 import com.norcode.bukkit.gpextras.GPExtras;
+import com.norcode.bukkit.gpextras.util.TimeUtil;
 import me.ryanhamshire.GriefPrevention.data.PluginClaimMeta;
 import me.ryanhamshire.GriefPrevention.events.PlayerChangeClaimEvent;
 import me.ryanhamshire.GriefPrevention.messages.TextMode;
@@ -35,11 +36,15 @@ public class ClaimChangeListener implements Listener {
                     String entryMessage = newMeta.getString("entry-message", null);
                     if (entryMessage != null) event.getPlayer().sendMessage(entryMessage);
                 }
+                ChatColor instr = plugin.getGP().configuration.getColor(TextMode.INSTR);
+                ChatColor info = plugin.getGP().configuration.getColor(TextMode.INFO);
                 if (newMeta.getDouble("sale-price", null) != null) {
                     Double price = newMeta.getDouble("sale-price", null);
-                    ChatColor instr = plugin.getGP().configuration.getColor(TextMode.INSTR);
-                    ChatColor info = plugin.getGP().configuration.getColor(TextMode.INFO);
                     event.getPlayer().sendMessage(instr + "FOR SALE: " + info + plugin.getGP().getEconomy().format(price));
+                } else if (newMeta.getDouble("rent-price", null) != null && newMeta.getString("renter-name", null) != null) {
+                    Double price = newMeta.getDouble("rent-price", null);
+                    Long duration = newMeta.getLong("rent-duration", null);
+                    event.getPlayer().sendMessage(instr + "FOR RENT: " + info + plugin.getGP().getEconomy().format(price) + " / " + TimeUtil.millisToString(duration));
                 }
             }
         }

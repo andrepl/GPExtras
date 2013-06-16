@@ -19,7 +19,7 @@ public class SellClaimCommand extends BaseClaimCommand {
 
     GPExtras extras;
 
-    public SellClaimCommand(GPExtras extras, String cmdName) {
+    public SellClaimCommand(GPExtras extras) {
         super(extras.getGP(), "gpsellclaim", Messages.ClaimMissing);
         this.extras = extras;
     }
