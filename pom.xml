@@ -54,7 +54,7 @@
         <dependency>
             <groupId>me.ryanhamshire.GriefPrevention</groupId>
             <artifactId>GriefPreventionTNG</artifactId>
-            <version>0.92.2-SNAPSHOT</version>
+            <version>0.92.3-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

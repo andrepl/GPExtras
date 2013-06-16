@@ -2,6 +2,7 @@ package com.norcode.bukkit.gpextras;
 
 import me.ryanhamshire.GriefPrevention.data.Claim;
 import me.ryanhamshire.GriefPrevention.data.PluginClaimMeta;
+import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Iterator;
@@ -39,8 +40,16 @@ public class RentCheckTask extends BukkitRunnable {
             for (String man: claim.getManagerList()) {
                 claim.removeManager(man);
             }
+            String owner = meta.getString("renter-name", null);
             meta.set("renter-name", null);
             meta.set("rent-expires", null);
+            plugin.getGP().getDataStore().saveClaim(claim);
+            if (owner != null) {
+                Player player = plugin.getServer().getPlayerExact(owner);
+                if (player.isOnline()) {
+                    player.sendMessage("Your claim at " + claim.getMin() + " has expired.");
+                }
+            }
         }
 
     }
