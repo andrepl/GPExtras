@@ -1,6 +1,6 @@
 main: com.norcode.bukkit.gpextras.GPExtras
 author: metalhedd
-version: 0.0.1
+version: 0.0.4-SNAPSHOT
 name: GPExtras
 depend: [GriefPreventionTNG]
 
@@ -9,18 +9,38 @@ commands:
     usage: /<command> [entry|exit] <message>
     description: sets the claim's entry/exit message
     permission: gpextras.command.setmessage
+  gpsellclaim:
+    usage: /<command> <saleprice>
+    description: puts a claim up for sale.
+    permission: gpextras.commands.sellclaim
+  gpbuyclaim:
+    usage: /<command>
+    description: purchases a claim that's for sale.
+    permission: gpextras.commands.buyclaim
 
 permissions:
+  gpextras.commands.sellclaim:
+    default: op
+  gpextras.commands.buyclaim:
+    default: op
   gpextras.flag.mobspawns:
     default: op
   gpextras.flag.pvp:
     default: op
   gpextras.command.setmessage:
     default: op
-  gpextras.*:
+  gpextras.player:
     default: op
     children:
       gpextras.command.setmessage: true
+      gpextras.command.sellclaim: true
+      gpextras.command.buyclaim: true
       gpextras.flag.mobspawns: true
       gpextras.flag.pvp: true
+
+  gpextras.admin:
+    default: op
+    children:
+      gpextras.player: true
+      gpextras.flag.hunger: true
 
