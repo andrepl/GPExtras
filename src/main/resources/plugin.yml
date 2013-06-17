@@ -17,7 +17,7 @@ commands:
     usage: /<command>
     description: purchases a claim that's for sale.
     permission: gpextras.commands.buyclaim
-  gprentclaim:
+  gprent:
     usage: /<command>
     description: rent a claim that's for rent.
     permission: gpextras.commands.rentclaim

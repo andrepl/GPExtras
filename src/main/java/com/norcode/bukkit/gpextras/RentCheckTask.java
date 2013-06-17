@@ -21,7 +21,9 @@ public class RentCheckTask extends BukkitRunnable {
         if (iter == null || !iter.hasNext()) {
             iter = plugin.getRentedClaims().iterator();
         }
-
+        if (!iter.hasNext()) {
+            return;
+        }
         Claim claim = plugin.getGP().getDataStore().getClaim(iter.next());
         if (claim == null) {
             return;

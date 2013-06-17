@@ -19,7 +19,7 @@ public class SetRentCommand extends BaseClaimCommand {
 
     GPExtras extras;
     public SetRentCommand(GPExtras extras) {
-        super(extras.getGP(), "setrent", Messages.ClaimMissing);
+        super(extras.getGP(), "gpsetrent", Messages.ClaimMissing);
     }
 
     @Override

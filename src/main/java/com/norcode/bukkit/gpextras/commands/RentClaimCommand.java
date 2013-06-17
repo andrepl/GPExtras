@@ -19,7 +19,7 @@ public class RentClaimCommand extends BaseClaimCommand {
     GPExtras extras;
 
     public RentClaimCommand(GPExtras extras) {
-        super(extras.getGP(), "rent", Messages.ClaimMissing);
+        super(extras.getGP(), "gprent", Messages.ClaimMissing);
         this.extras = extras;
     }
 
