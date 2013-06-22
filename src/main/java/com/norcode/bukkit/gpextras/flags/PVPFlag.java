@@ -19,6 +19,7 @@ public class PVPFlag extends BaseFlag implements Listener {
 
     public PVPFlag(GPExtras plugin) {
         super("PVP");
+        this.plugin = plugin;
         this.setDisplayName("PVP");
         this.setDescription("Prevents PVP Damage.");
         this.getValidOptions().add("Allow");
@@ -31,9 +32,7 @@ public class PVPFlag extends BaseFlag implements Listener {
     @EventHandler(ignoreCancelled=true, priority= EventPriority.HIGH)
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         if (event.getEntity() instanceof Player) {
-            if ((event.getDamager() instanceof Player) ||
-                    ((event.getDamager() instanceof Projectile) &&
-                            ((Projectile) ((Projectile) event.getDamager()).getShooter() instanceof Player))) {
+            if ((event.getDamager() instanceof Player) ||((event.getDamager() instanceof Projectile) && (((Projectile) event.getDamager()).getShooter() instanceof Player))) {
                 Player target = (Player) event.getEntity();
                 PlayerData pd = plugin.getGP().getDataStore().getPlayerData(target.getName());
                 Claim claim = null;
