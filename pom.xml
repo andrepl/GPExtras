@@ -61,9 +61,9 @@
             <version>1.5.2-R0.1</version>
         </dependency>
         <dependency>
-            <groupId>me.ryanhamshire.GriefPrevention</groupId>
+            <groupId>com.norcode.bukkit.griefprevention</groupId>
             <artifactId>GriefPreventionTNG</artifactId>
-            <version>0.92.3-SNAPSHOT</version>
+            <version>0.92.4-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

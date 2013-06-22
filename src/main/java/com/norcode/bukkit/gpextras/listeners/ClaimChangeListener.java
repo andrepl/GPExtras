@@ -2,9 +2,9 @@ package com.norcode.bukkit.gpextras.listeners;
 
 import com.norcode.bukkit.gpextras.GPExtras;
 import com.norcode.bukkit.gpextras.util.TimeUtil;
-import me.ryanhamshire.GriefPrevention.data.PluginClaimMeta;
-import me.ryanhamshire.GriefPrevention.events.PlayerChangeClaimEvent;
-import me.ryanhamshire.GriefPrevention.messages.TextMode;
+import com.norcode.bukkit.griefprevention.data.PluginClaimMeta;
+import com.norcode.bukkit.griefprevention.events.PlayerChangeClaimEvent;
+import com.norcode.bukkit.griefprevention.messages.TextMode;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

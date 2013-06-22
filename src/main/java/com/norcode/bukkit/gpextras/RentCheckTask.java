@@ -1,7 +1,7 @@
 package com.norcode.bukkit.gpextras;
 
-import me.ryanhamshire.GriefPrevention.data.Claim;
-import me.ryanhamshire.GriefPrevention.data.PluginClaimMeta;
+import com.norcode.bukkit.griefprevention.data.Claim;
+import com.norcode.bukkit.griefprevention.data.PluginClaimMeta;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 

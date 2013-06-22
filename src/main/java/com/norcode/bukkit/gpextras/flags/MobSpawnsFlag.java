@@ -1,13 +1,11 @@
 package com.norcode.bukkit.gpextras.flags;
 
 import com.norcode.bukkit.gpextras.GPExtras;
-import me.ryanhamshire.GriefPrevention.GriefPrevention;
-import me.ryanhamshire.GriefPrevention.configuration.WorldConfig;
-import me.ryanhamshire.GriefPrevention.data.Claim;
-import me.ryanhamshire.GriefPrevention.flags.BaseFlag;
+import com.norcode.bukkit.griefprevention.configuration.WorldConfig;
+import com.norcode.bukkit.griefprevention.data.Claim;
+import com.norcode.bukkit.griefprevention.flags.BaseFlag;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

@@ -6,11 +6,11 @@ import com.norcode.bukkit.gpextras.flags.MobSpawnsFlag;
 import com.norcode.bukkit.gpextras.flags.PVPFlag;
 import com.norcode.bukkit.gpextras.listeners.ClaimChangeListener;
 import com.norcode.bukkit.gpextras.listeners.GriefPreventionListener;
-import me.ryanhamshire.GriefPrevention.GriefPrevention;
-import me.ryanhamshire.GriefPrevention.data.Claim;
-import me.ryanhamshire.GriefPrevention.data.PluginClaimMeta;
-import me.ryanhamshire.GriefPrevention.exceptions.FlagAlreadyRegisteredException;
-import me.ryanhamshire.GriefPrevention.exceptions.InvalidFlagException;
+import com.norcode.bukkit.griefprevention.GriefPreventionTNG;
+import com.norcode.bukkit.griefprevention.data.Claim;
+import com.norcode.bukkit.griefprevention.data.PluginClaimMeta;
+import com.norcode.bukkit.griefprevention.exceptions.FlagAlreadyRegisteredException;
+import com.norcode.bukkit.griefprevention.exceptions.InvalidFlagException;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -19,7 +19,7 @@ import java.util.UUID;
 
 public class GPExtras extends JavaPlugin {
 
-    GriefPrevention griefPreventionPlugin;
+    GriefPreventionTNG griefPreventionPlugin;
     ClaimChangeListener claimChangeListener;
     private HashSet<UUID> rentedClaims = new HashSet<UUID>();
     BukkitTask rentCheckTask;
@@ -27,7 +27,7 @@ public class GPExtras extends JavaPlugin {
     @Override
     public void onEnable() {
         initConfig();
-        griefPreventionPlugin = (GriefPrevention) getServer().getPluginManager().getPlugin("GriefPreventionTNG");
+        griefPreventionPlugin = (GriefPreventionTNG) getServer().getPluginManager().getPlugin("GriefPreventionTNG");
         new GriefPreventionListener(this);
         loadFlags();
         claimChangeListener = new ClaimChangeListener(this);
@@ -66,7 +66,7 @@ public class GPExtras extends JavaPlugin {
         }
     }
 
-    public GriefPrevention getGP() {
+    public GriefPreventionTNG getGP() {
         return griefPreventionPlugin;
     }
 

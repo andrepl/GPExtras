@@ -2,11 +2,10 @@ package com.norcode.bukkit.gpextras.commands;
 
 import com.norcode.bukkit.gpextras.GPExtras;
 import com.norcode.bukkit.gpextras.util.TimeUtil;
-import me.ryanhamshire.GriefPrevention.GriefPrevention;
-import me.ryanhamshire.GriefPrevention.commands.BaseClaimCommand;
-import me.ryanhamshire.GriefPrevention.data.Claim;
-import me.ryanhamshire.GriefPrevention.data.PluginClaimMeta;
-import me.ryanhamshire.GriefPrevention.messages.Messages;
+import com.norcode.bukkit.griefprevention.commands.BaseClaimCommand;
+import com.norcode.bukkit.griefprevention.data.Claim;
+import com.norcode.bukkit.griefprevention.data.PluginClaimMeta;
+import com.norcode.bukkit.griefprevention.messages.Messages;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

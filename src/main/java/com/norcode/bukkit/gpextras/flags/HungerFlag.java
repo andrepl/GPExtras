@@ -1,9 +1,9 @@
 package com.norcode.bukkit.gpextras.flags;
 
 import com.norcode.bukkit.gpextras.GPExtras;
-import me.ryanhamshire.GriefPrevention.data.Claim;
-import me.ryanhamshire.GriefPrevention.data.PlayerData;
-import me.ryanhamshire.GriefPrevention.flags.BaseFlag;
+import com.norcode.bukkit.griefprevention.data.Claim;
+import com.norcode.bukkit.griefprevention.data.PlayerData;
+import com.norcode.bukkit.griefprevention.flags.BaseFlag;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
