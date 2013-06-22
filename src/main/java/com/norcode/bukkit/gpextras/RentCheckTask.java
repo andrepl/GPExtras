@@ -33,7 +33,7 @@ public class RentCheckTask extends BukkitRunnable {
             return;
         }
         Long expiry = meta.getLong("rent-expires", null);
-        if (expiry != null) {
+        if (expiry == null) {
             return;
         }
         if (System.currentTimeMillis() > expiry) {
