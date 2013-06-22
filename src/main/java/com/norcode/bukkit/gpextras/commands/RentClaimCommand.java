@@ -33,7 +33,7 @@ public class RentClaimCommand extends BaseClaimCommand {
         Double price = meta.getDouble("rent-price",null);
         Long duration = meta.getLong("rent-duration", null);
         String currentOccupant = meta.getString("renter-name", null);
-        if (currentOccupant != player.getName()) {
+        if (currentOccupant != null && !currentOccupant.equals(player.getName())) {
             player.sendMessage(currentOccupant + " is already renting this claim.");
             return true;
         }
