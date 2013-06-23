@@ -10,7 +10,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.authors>metalhedd</project.authors>
         <project.main>com.norcode.bukkit.gpextras.GPExtras</project.main>
-        <project.softdepends>[GriefPrevention]</project.softdepends>
+        <project.softdepends>[GriefPreventionTNG]</project.softdepends>
         <project.description>More claim-specific options for Grief Prevention</project.description>
     </properties>
     <distributionManagement>
