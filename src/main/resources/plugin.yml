@@ -33,6 +33,8 @@ permissions:
     default: op
   gpextras.flag.mobspawns:
     default: op
+  gpextras.flag.transit:
+    default: op
   gpextras.flag.pvp:
     default: op
   gpextras.command.setmessage:
@@ -51,4 +53,5 @@ permissions:
     children:
       gpextras.player: true
       gpextras.flag.hunger: true
+      gpextras.flag.transit: true
 

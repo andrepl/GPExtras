@@ -4,6 +4,7 @@ import com.norcode.bukkit.gpextras.commands.*;
 import com.norcode.bukkit.gpextras.flags.HungerFlag;
 import com.norcode.bukkit.gpextras.flags.MobSpawnsFlag;
 import com.norcode.bukkit.gpextras.flags.PVPFlag;
+import com.norcode.bukkit.gpextras.flags.TransitFlag;
 import com.norcode.bukkit.gpextras.listeners.ClaimChangeListener;
 import com.norcode.bukkit.gpextras.listeners.GriefPreventionListener;
 import com.norcode.bukkit.griefprevention.GriefPreventionTNG;
@@ -73,12 +74,17 @@ public class GPExtras extends JavaPlugin {
     private PVPFlag pvpFlag;
     private HungerFlag hungerFlag;
     private MobSpawnsFlag mobSpawnsFlag;
+    private TransitFlag transitFlag;
 
     public void loadFlags() {
         try {
         if (getConfig().getBoolean("mob_spawns.enabled")) {
             mobSpawnsFlag = new MobSpawnsFlag(this);
             griefPreventionPlugin.getFlagManager().registerFlag(mobSpawnsFlag);
+        }
+        if (getConfig().getBoolean("transitzones.enabled")) {
+            transitFlag = new TransitFlag(this);
+            griefPreventionPlugin.getFlagManager().registerFlag(transitFlag);
         }
         if (getConfig().getBoolean("pvp.enabled")) {
             pvpFlag = new PVPFlag(this);
