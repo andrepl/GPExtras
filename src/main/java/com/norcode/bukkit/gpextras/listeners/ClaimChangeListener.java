@@ -32,6 +32,7 @@ public class ClaimChangeListener implements Listener {
         } else if (event.getNewClaim() != null) {
             PluginClaimMeta newMeta = event.getNewClaim().getClaimMeta(plugin, false);
             if (newMeta != null) {
+                plugin.debug("Meta: " + newMeta.serialize().toString());
                 if (plugin.getConfig().getBoolean("entry-exit-messages")) {
                     String entryMessage = newMeta.getString("entry-message", null);
                     if (entryMessage != null) event.getPlayer().sendMessage(entryMessage);
@@ -41,10 +42,19 @@ public class ClaimChangeListener implements Listener {
                 if (newMeta.getDouble("sale-price", null) != null) {
                     Double price = newMeta.getDouble("sale-price", null);
                     event.getPlayer().sendMessage(instr + "FOR SALE: " + info + plugin.getGP().getEconomy().format(price));
-                } else if (newMeta.getDouble("rent-price", null) != null && newMeta.getString("renter-name", null) != null) {
+                } else if (newMeta.getDouble("rent-price", null) != null && newMeta.getString("renter-name", null) == null) {
                     Double price = newMeta.getDouble("rent-price", null);
                     Long duration = newMeta.getLong("rent-duration", null);
-                    event.getPlayer().sendMessage(instr + "FOR RENT: " + info + plugin.getGP().getEconomy().format(price) + " / " + TimeUtil.millisToString(duration));
+                    if (duration == null) {
+                        Integer intd = newMeta.getInt("rent-duration", null);
+                        if (intd != null) {
+                            duration = (long) (int) intd;
+                        }
+                    }
+                    if (duration != null) {
+                        String formattedPrice = plugin.getGP().getEconomy().format(price);
+                        event.getPlayer().sendMessage(instr + "FOR RENT: " + info + formattedPrice + " / " + TimeUtil.millisToString(duration));
+                    }
                 }
             }
         }

@@ -26,9 +26,11 @@ public class RentClaimCommand extends BaseClaimCommand {
     public boolean onCommand(Player player, Claim claim, Command command, String label, LinkedList<String> args) {
         PluginClaimMeta meta = claim.getClaimMeta(extras, false);
         if (meta == null) {
+            extras.debug("No claim meta");
             player.sendMessage("This claim is not for rent.");
             return true;
         }
+        extras.debug(meta.serialize().toString());
         Double price = meta.getDouble("rent-price",null);
         Long duration = meta.getLong("rent-duration", null);
         String currentOccupant = meta.getString("renter-name", null);
@@ -37,6 +39,7 @@ public class RentClaimCommand extends BaseClaimCommand {
             return true;
         }
         if (price == null || price <= 0 || !plugin.hasEconomy()) {
+            extras.debug("No price" + price);
             player.sendMessage("This claim is not for rent.");
             return true;
         }
