@@ -33,12 +33,18 @@ public class RentClaimCommand extends BaseClaimCommand {
         extras.debug(meta.serialize().toString());
         Double price = meta.getDouble("rent-price",null);
         Long duration = meta.getLong("rent-duration", null);
+        if (duration == null) {
+            Integer intd = meta.getInt("rent-duration", null);
+            if (intd != null) {
+                duration = (long) (int) intd;
+            }
+        }
         String currentOccupant = meta.getString("renter-name", null);
         if (currentOccupant != null && !currentOccupant.equals(player.getName())) {
             player.sendMessage(currentOccupant + " is already renting this claim.");
             return true;
         }
-        if (price == null || price <= 0 || !plugin.hasEconomy()) {
+        if (price == null || duration == null || price <= 0 || !plugin.hasEconomy()) {
             extras.debug("No price" + price);
             player.sendMessage("This claim is not for rent.");
             return true;
