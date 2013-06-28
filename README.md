@@ -1,7 +1,7 @@
 GPExtras
 ========
 
-**ATTENTION: This plugin does NOT work with Grief Prevention by bigscary.  It's an addon for a completely incompatible fork of Grief Prevention.  This, and Grief Prevention TNG Will be undergoing name changes in the near future, sorry for any confusion.**
+**ATTENTION: This plugin does NOT work with [Grief Prevention](http://github.com/Tux2/GriefPrevention/) by bigscary (and Tux2).  It's an addon for a completely incompatible fork of Grief Prevention.  This, and Grief Prevention TNG Will be undergoing name changes in the near future, sorry for any confusion.**
 
 Addons for [Grief Prevention TNG](http://github.com/andrepl/GriefPreventionTNG/)
 
