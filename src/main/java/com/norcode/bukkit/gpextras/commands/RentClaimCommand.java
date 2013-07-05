@@ -3,6 +3,7 @@ package com.norcode.bukkit.gpextras.commands;
 import com.norcode.bukkit.gpextras.GPExtras;
 import com.norcode.bukkit.gpextras.util.TimeUtil;
 import com.norcode.bukkit.griefprevention.commands.BaseClaimCommand;
+import com.norcode.bukkit.griefprevention.configuration.ClaimPermission;
 import com.norcode.bukkit.griefprevention.data.Claim;
 import com.norcode.bukkit.griefprevention.data.PluginClaimMeta;
 import com.norcode.bukkit.griefprevention.messages.Messages;
@@ -55,7 +56,8 @@ public class RentClaimCommand extends BaseClaimCommand {
             meta.set("rent-expires", expires + duration);
             meta.set("renter-name", player.getName());
             claim.clearPermissions();
-            claim.addManager(player.getName());
+            claim.setPermission(player.getName(), ClaimPermission.BUILD);
+
             player.sendMessage("You have rented this claim for " + TimeUtil.millisToString(duration));
             plugin.getDataStore().saveClaim(claim);
         } else {

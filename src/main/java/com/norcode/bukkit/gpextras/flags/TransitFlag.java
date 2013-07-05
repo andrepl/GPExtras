@@ -42,11 +42,11 @@ public class TransitFlag extends BaseFlag implements Listener {
             Vehicle v2 = (Vehicle) event.getEntity();
             if (v1.isEmpty() && !v2.isEmpty()) {
                 v1.remove();
-                v1.getLocation().getWorld().dropItem(v1.getLocation(), new ItemStack(Material.MINECART));
+                //v1.getLocation().getWorld().dropItem(v1.getLocation(), new ItemStack(Material.MINECART));
                 event.setCancelled(true);
             } else if (v2.isEmpty() && !v1.isEmpty()) {
                 v2.remove();
-                v2.getLocation().getWorld().dropItem(v2.getLocation(), new ItemStack(Material.MINECART));
+                //v2.getLocation().getWorld().dropItem(v2.getLocation(), new ItemStack(Material.MINECART));
                 event.setCancelled(true);
             }
         }
